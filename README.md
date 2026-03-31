@@ -1,6 +1,8 @@
 # Stock Analyzer Pipeline
 
-This project pulls Robinhood positions, merges them with GUI holdings data, and loads the result into SQLite.
+This project pulls Robinhood positions, merges them with holdings data from a GUI (
+The GUI data is sourced from a previous Java project I worked on, Github link:
+[stock-manager-gui](https://github.com/reazwrahman/stock-manager-gui)), and loads the result into SQLite.
 
 ## Setup
 
@@ -26,11 +28,12 @@ The GUI data is sourced from a previous Java project I worked on, Github link:
 [stock-manager-gui](https://github.com/reazwrahman/stock-manager-gui)
 
 By default, `data_merger.py` looks for `StockOutput.json` in the current folder.  
-To use a file in another location, set `GUI_DATA_PATH`:
+To use a file in another location, set `GUI_DATA_PATH` in `local.env` file:
 
-```bash
-GUI_DATA_PATH=/full/path/to/StockOutput.json python data_merger.py
 ```
+GUI_DATA_PATH=/full/path/to/StockOutput.json
+```
+then run: `python data_merger.py`
 
 This writes `merged_data.json`.
 
@@ -45,13 +48,13 @@ This recreates `merged_data.db` and repopulates table `merged_positions`.
 ## Run Full Pipeline
 
 ```bash
-python data_updater.py
+python main.py
 ```
 
 This runs:
 1. `robinhood_accessor.py`
 2. `data_merger.py`
-3. `json_to_sqlite.py`
+3. `db_updater.py`
 
 ## Notes
 
