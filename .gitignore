@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+../venv/
+.venv/
+env/
+local.env
+
+# Local IDE/project files
+.idea/
+.vscode/
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.cer
+secrets*.json
+credentials*.json
+
+# Locally generated data
+stock_analyzer/robinhood_positions.json
+stock_analyzer/merged_data.json
+stock_analyzer/merged_data.db
+
+# OS files
+.DS_Store
