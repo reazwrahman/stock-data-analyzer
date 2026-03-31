@@ -28,9 +28,9 @@ secrets*.json
 credentials*.json
 
 # Locally generated data
-stock_analyzer/robinhood_positions.json
-stock_analyzer/merged_data.json
-stock_analyzer/merged_data.db
+robinhood_positions.json
+merged_data.json
+merged_data.db
 
 # OS files
 .DS_Store
