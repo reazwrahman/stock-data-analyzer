@@ -22,12 +22,14 @@ from __future__ import annotations
 
 import getpass
 import json
+import os
 from dataclasses import dataclass, asdict
 from typing import Any
 
+from dotenv import load_dotenv
 from robin_stocks import robinhood as rh
 
-
+load_dotenv("local.env")
 
 @dataclass
 class PositionSummary:
@@ -50,14 +52,12 @@ def _safe_float(value: Any, default: float = 0.0) -> float:
 
 
 def login() -> None:
-    username = input("Robinhood username/email: ").strip()
-    password = getpass.getpass("Robinhood password: ")
-    mfa_code = input("MFA code (press Enter if not prompted): ").strip() or None
+    username = os.getenv("RH_EMAIL")
+    password = os.getenv("RH_PW")
 
     rh.authentication.login(
         username=username,
         password=password,
-        mfa_code=mfa_code,
         store_session=False,
     )
 
