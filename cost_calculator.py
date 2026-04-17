@@ -8,4 +8,6 @@ def calculate_cost(curr_value, delta, direction):
     else:
         cost = curr_value + delta
 
-    return cost
+    return cost 
+
+print(calculate_cost("28,147.70","28000","up"))
